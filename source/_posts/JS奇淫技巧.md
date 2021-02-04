@@ -76,3 +76,34 @@ function cached(fn) {
   };
 }
 ```
+
+## compose嵌套式函数链式调用优化
+
+- 依次执行函数的时候，往往使用以下基本写法
+
+  ```js
+  const res = fun3(fun2(fun1('arg')))
+  ```
+
+  这种写法一般能满足基本需要。但是如果在嵌套层数更多的情况下，代码就会变得很复杂、难以维护。
+
+- 在Redux内部compose的写法如下
+
+  ```js
+  function compose(...funs) {
+      return funcs.reduce((a, b) => (...args) => a(b(...args)));
+  }
+  ```
+
+  ```js
+  const newfunc = compose(fun3,fun2,fun1)
+  const res = newfunc('arg')
+  ```
+
+  
+
+  在此函数中，重点为`reduce` 方法。在使用此方法时，将会依次选用第1个、第2个；第2个、第3个fun，并用后一个函数的执行结果作为前一个的参数，从而实现需要的依次执行效果。
+
+  在本例中，执行的顺序如下：
+
+  1. `fun3(fun2(...args)) -> fun3(fun2(fun1(...args)))`
