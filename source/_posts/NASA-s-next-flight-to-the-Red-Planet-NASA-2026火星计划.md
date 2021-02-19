@@ -14,5 +14,7 @@ categories:
 ## 2026年的申请渠道
 现在官网的申请渠道仍可以使用，其中增加的名字大概率会在2026年的NASA火星计划中随着新火箭飞往火星。
 错过“毅力号”的XDM，现在可以行动起来啦！
+
+> [申请渠道链接](https://mars.nasa.gov/participate/send-your-name/future)
 > 以下附我的2026年火星飞行计划(误)
 {% iframe https://mars.nasa.gov/layout/embed/send-your-name/future/certificate/?cn=521339539951 980 410 %}
