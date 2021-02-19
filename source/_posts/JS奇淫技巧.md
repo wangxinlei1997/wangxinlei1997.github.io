@@ -2,6 +2,11 @@
 title: JS奇淫技巧
 date: 2021-02-03 18:00:13
 tags:
+    - JS
+    - JavaScript
+    - 技术
+categories: 
+    - 技术分享
 ---
 
 ## 前言

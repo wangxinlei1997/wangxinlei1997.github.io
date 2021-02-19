@@ -2,6 +2,9 @@
 title: NASA's next flight to the Red Planet - NASA 把你的名字送上火星计划
 date: 2021-02-19 16:31:30
 tags:
+    - 杂谈
+categories: 
+    - 日常杂谈
 ---
 ## 2021年的成功登陆
 在2021年2月18日，NASA“毅力号”漫游器成功登陆火星，其主要任务是设法采集火星岩石和土壤样本，然后将他们带回地球。
