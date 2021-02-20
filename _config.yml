@@ -113,3 +113,15 @@ deploy:
   type: ""
 sitemap:
   path: sitemap.xml
+search:
+  path: search.xml
+  field: post
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'
+githubEmojis:
+  enable: true
+  className: github-emoji
+  inject: true
+  styles:
+  customEmojis:

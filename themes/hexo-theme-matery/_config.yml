@@ -631,3 +631,10 @@ bbtime:
  appId: # 你的appId
  appKey: # 你的appKey
  serverURLs: # https://你的api
+postInfo:
+  date: true
+  update: false
+  wordCount: true # set true.
+  totalCount: true # set true.
+  min2read: true # set true.
+  readCount: true # set true.
