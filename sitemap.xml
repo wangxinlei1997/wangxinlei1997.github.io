@@ -23,6 +23,13 @@
   </url>
   
   <url>
+    <loc>http://wangxinlei1997.github.io/2021/02/20/%E7%83%AD%E5%8C%BA%E6%89%A9%E5%A4%A7-VUE%E7%BB%84%E4%BB%B6/</loc>
+    
+    <lastmod>2021-02-20</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wangxinlei1997.github.io/about/index.html</loc>
     
     <lastmod>2021-02-20</lastmod>
@@ -31,6 +38,13 @@
   
   <url>
     <loc>http://wangxinlei1997.github.io/categories/index.html</loc>
+    
+    <lastmod>2021-02-20</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wangxinlei1997.github.io/friends/index.html</loc>
     
     <lastmod>2021-02-20</lastmod>
     
@@ -82,6 +96,20 @@
   
   <url>
     <loc>http://wangxinlei1997.github.io/tags/%E6%9D%82%E8%B0%88/</loc>
+    <lastmod>2021-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wangxinlei1997.github.io/tags/Vue/</loc>
+    <lastmod>2021-02-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://wangxinlei1997.github.io/tags/%E8%BD%AE%E5%AD%90/</loc>
     <lastmod>2021-02-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
