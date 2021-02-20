@@ -125,3 +125,6 @@ githubEmojis:
   inject: true
   styles:
   customEmojis:
+lazyload:
+  enable: true
+  script: https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js
