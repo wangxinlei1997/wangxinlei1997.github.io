@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="热区扩大-Vue组件, 王小磊的博客">
+    <meta name="keywords" content="道格拉斯-普克算法(Ramer–Douglas–Peucker)曲线降采样, 王小磊的博客">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>热区扩大-Vue组件 | 王小磊的博客</title>
+    <title>道格拉斯-普克算法(Ramer–Douglas–Peucker)曲线降采样 | 王小磊的博客</title>
     <link rel="icon" type="image/png" href="/lei.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -249,12 +249,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">热区扩大-Vue组件</h1>
+                    <h1 class="description center-align post-title">道格拉斯-普克算法(Ramer–Douglas–Peucker)曲线降采样</h1>
                 </div>
             </div>
         </div>
@@ -374,12 +374,8 @@
                                 <span class="chip bg-color">技术</span>
                             </a>
                         
-                            <a href="/tags/Vue/">
-                                <span class="chip bg-color">Vue</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%BD%AE%E5%AD%90/">
-                                <span class="chip bg-color">轮子</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
                     </div>
@@ -390,8 +386,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%BD%AE%E5%AD%90/" class="post-category">
-                                轮子
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="post-category">
+                                技术分享
                             </a>
                         
                     </div>
@@ -403,7 +399,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-20
+                    2021-05-13
                 </div>
                 
 
@@ -427,65 +423,50 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="废话不多说直接上代码"><a href="#废话不多说直接上代码" class="headerlink" title="废话不多说直接上代码"></a>废话不多说直接上代码</h2><pre class="language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>parent<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span>
-    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[<span class="token punctuation">'</span>expand<span class="token punctuation">'</span>,area]<span class="token punctuation">"</span></span> <span class="token attr-name">@click.stop</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>emit<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>
-  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+                <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>在最近开发的某系统中，有一需求是在map上显示路径，并在路径上分段打箭头、点和文字信息（时间）。</p>
+<blockquote>
+<p>测试环境（mock数据）理想效果</p>
+</blockquote>
+<p><img src="/images/ramer1.png"><br>看起来还不错是吧<br>然鹅，但由于真实环境点位数据过于密集，导致显示效果十分魔幻，看起来是这样婶的。（害）<br><img src="/images/ramer2.png"><br>然后呢，突然想起来之前大学时侯做acm的一个路径拟合题和这个需求很类似，就在此分享一下吧<br><del>（虽然好像这个算法是由后端实现）</del>。</p>
+<h1 id="Ramer–Douglas–Peucker算法"><a href="#Ramer–Douglas–Peucker算法" class="headerlink" title="Ramer–Douglas–Peucker算法"></a>Ramer–Douglas–Peucker算法</h1><h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ramer%E2%80%93Douglas%E2%80%93Peucker_algorithm">Ramer–Douglas–Peucker</a>算法，又称道格拉斯-普克算法算法或迭代端点拟合算法，是一种将由多点组成的曲线（折线）降采样为点数较小的类似曲线（折线）的算法。</p>
+<h2 id="2-算法思想"><a href="#2-算法思想" class="headerlink" title="2. 算法思想"></a>2. 算法思想</h2><p>起始曲线是一组<strong>有序</strong>的点或线，距离维度 ε（可以理解为拟合度） &gt; 0。<br>该算法采用递归思想。最初，运算点集合为所有点。首先，拟合出第一个点和最后一个点的直线，计算当前运算集中所有点到这条直线的距离（循环），如果这个距离(d)&lt;ε,那么可以将除了首尾的两个点以外的所有点去除,形成一个简单线段。否则，如果距离(d)&gt;ε，这个点将被保留，并由此点将原有运算集划分为两个子集，并递归运算这个流程。<br>当递归完成后，可以生成一条新的输出曲线，该曲线由所有且仅由那些被标记为保留的点组成。<br><em>说了这些，有轻微阅读障碍的XDM估计已经躺下了（比如我），所以这里放上一张图来帮助理解。</em><br><img src="/images/ramer3.gif"></p>
+<h2 id="3-参数控制"><a href="#3-参数控制" class="headerlink" title="3. 参数控制"></a>3. 参数控制</h2><p>ε(阈值)，越小，直线越平滑，越大，直线越锐利。<br><img src="/images/ramer4.gif"></p>
+<h2 id="4-伪代码"><a href="#4-伪代码" class="headerlink" title="4. 伪代码"></a>4. 伪代码</h2><pre class="language-js" data-language="js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">道格拉斯</span><span class="token punctuation">(</span><span class="token parameter">运算点集<span class="token punctuation">,</span> 阈值</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 找出两点间点的最大距离</span>
+  最大距离 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  距离最大点位置 <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  length <span class="token operator">=</span> 运算集<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    d <span class="token operator">=</span> <span class="token function">计算点到直线距离</span><span class="token punctuation">(</span>
+      运算点集<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token function">拟合直线方程</span><span class="token punctuation">(</span>运算点集<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 运算点集<span class="token punctuation">[</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>d <span class="token operator">&gt;</span> 最大距离<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      距离最大点位置 <span class="token operator">=</span> i<span class="token punctuation">;</span>
+      最大距离 <span class="token operator">=</span> d<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script"><span class="token language-javascript">
-  <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
-    name<span class="token operator">:</span> <span class="token string">"ExpandClickArea"</span><span class="token punctuation">,</span>
-    props<span class="token operator">:</span> <span class="token punctuation">{</span>
-      area<span class="token operator">:</span> <span class="token punctuation">{</span>
-        <span class="token comment">//small,normal,big,large</span>
-        <span class="token keyword">default</span><span class="token operator">:</span> <span class="token string">"normal"</span><span class="token punctuation">,</span>
-        type<span class="token operator">:</span> String<span class="token punctuation">,</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    methods<span class="token operator">:</span> <span class="token punctuation">{</span>
-      <span class="token function">emit</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"expandOnClick"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token punctuation">}</span><span class="token punctuation">,</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  结果输出 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">scoped</span><span class="token punctuation">&gt;</span></span><span class="token style"><span class="token language-css">
-  <span class="token selector">.parent</span> <span class="token punctuation">{</span>
-    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
-    <span class="token property">overflow-x</span><span class="token punctuation">:</span> visible<span class="token punctuation">;</span>
-    <span class="token property">overflow</span><span class="token punctuation">:</span> visible<span class="token punctuation">;</span>
+  <span class="token comment">// 如果最大距离小于阈值,就拟合</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>最大距离 <span class="token operator">&gt;</span> 阈值<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 继续计算</span>
+    左子集 <span class="token operator">=</span> <span class="token function">道格拉斯</span><span class="token punctuation">(</span>运算点集合<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> 距离最大点位置<span class="token punctuation">)</span><span class="token punctuation">,</span> 阈值<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    右子集 <span class="token operator">=</span> <span class="token function">道格拉斯</span><span class="token punctuation">(</span>运算点集<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span>距离最大点位置<span class="token punctuation">,</span> length<span class="token punctuation">)</span><span class="token punctuation">,</span> 阈值<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    结果输出 <span class="token operator">=</span> 左子集<span class="token punctuation">.</span><span class="token function">concat</span><span class="token punctuation">(</span>右子集<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 拟合</span>
+    结果输出 <span class="token operator">=</span> <span class="token punctuation">[</span>运算点集<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> 运算点集<span class="token punctuation">[</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-  <span class="token selector">.expand</span> <span class="token punctuation">{</span>
-    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token selector">.normal</span> <span class="token punctuation">{</span>
-    <span class="token property">top</span><span class="token punctuation">:</span> -10px<span class="token punctuation">;</span>
-    <span class="token property">right</span><span class="token punctuation">:</span> -10px<span class="token punctuation">;</span>
-    <span class="token property">bottom</span><span class="token punctuation">:</span> -10px<span class="token punctuation">;</span>
-    <span class="token property">left</span><span class="token punctuation">:</span> -10px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token selector">.small</span> <span class="token punctuation">{</span>
-    <span class="token property">top</span><span class="token punctuation">:</span> -5px<span class="token punctuation">;</span>
-    <span class="token property">right</span><span class="token punctuation">:</span> -5px<span class="token punctuation">;</span>
-    <span class="token property">bottom</span><span class="token punctuation">:</span> -5px<span class="token punctuation">;</span>
-    <span class="token property">left</span><span class="token punctuation">:</span> -5px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token selector">.big</span> <span class="token punctuation">{</span>
-    <span class="token property">top</span><span class="token punctuation">:</span> -15px<span class="token punctuation">;</span>
-    <span class="token property">right</span><span class="token punctuation">:</span> -15px<span class="token punctuation">;</span>
-    <span class="token property">bottom</span><span class="token punctuation">:</span> -15px<span class="token punctuation">;</span>
-    <span class="token property">left</span><span class="token punctuation">:</span> -15px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token selector">.large</span> <span class="token punctuation">{</span>
-    <span class="token property">top</span><span class="token punctuation">:</span> -20px<span class="token punctuation">;</span>
-    <span class="token property">right</span><span class="token punctuation">:</span> -20px<span class="token punctuation">;</span>
-    <span class="token property">bottom</span><span class="token punctuation">:</span> -20px<span class="token punctuation">;</span>
-    <span class="token property">left</span><span class="token punctuation">:</span> -20px<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span></code></pre>
+  <span class="token keyword">return</span> 结果输出<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<h2 id="5-后记"><a href="#5-后记" class="headerlink" title="5.后记"></a>5.后记</h2><ul>
+<li>算法复杂度O(n log n) </li>
+</ul>
+<hr>
+<p>End</p>
+
                 
             </div>
             <hr/>
@@ -511,7 +492,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://xiaob.work/2021/02/20/re-qu-kuo-da-vue-zu-jian/">http://xiaob.work/2021/02/20/re-qu-kuo-da-vue-zu-jian/</a>
+                    <a href="http://xiaob.work/2021/05/13/dao-ge-la-si-pu-ke-suan-fa-ramer-douglas-peucker-qu-xian-jiang-cai-yang/">http://xiaob.work/2021/05/13/dao-ge-la-si-pu-ke-suan-fa-ramer-douglas-peucker-qu-xian-jiang-cai-yang/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -553,12 +534,8 @@
                                     <span class="chip bg-color">技术</span>
                                 </a>
                             
-                                <a href="/tags/Vue/">
-                                    <span class="chip bg-color">Vue</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%BD%AE%E5%AD%90/">
-                                    <span class="chip bg-color">轮子</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
                         </div>
@@ -602,9 +579,64 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2021/05/13/dao-ge-la-si-pu-ke-suan-fa-ramer-douglas-peucker-qu-xian-jiang-cai-yang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="道格拉斯-普克算法(Ramer–Douglas–Peucker)曲线降采样">
+                        
+                        <span class="card-title">道格拉斯-普克算法(Ramer–Douglas–Peucker)曲线降采样</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="post-category">
+                                    技术分享
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%8A%80%E6%9C%AF/">
+                        <span class="chip bg-color">技术</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/05/07/cesium-zhi-vue-huan-jing-pei-zhi-yu-demo-yun-xing/">
                     <div class="card-image">
@@ -622,9 +654,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-07
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -650,55 +682,6 @@
                     
                     <a href="/tags/GIS/">
                         <span class="chip bg-color">GIS</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/19/nasa-s-next-flight-to-the-red-planet-nasa-2026-huo-xing-ji-hua/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="NASA&#39;s next flight to the Red Planet - NASA 把你的名字送上火星计划">
-                        
-                        <span class="card-title">NASA&#39;s next flight to the Red Planet - NASA 把你的名字送上火星计划</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-19
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%97%A5%E5%B8%B8%E6%9D%82%E8%B0%88/" class="post-category">
-                                    日常杂谈
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%9D%82%E8%B0%88/">
-                        <span class="chip bg-color">杂谈</span>
                     </a>
                     
                 </div>
