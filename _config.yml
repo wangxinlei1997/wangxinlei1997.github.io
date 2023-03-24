@@ -130,3 +130,5 @@ githubEmojis:
 lazyload:
   enable: true
   script: https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js
+encrypt:
+  enable: true
