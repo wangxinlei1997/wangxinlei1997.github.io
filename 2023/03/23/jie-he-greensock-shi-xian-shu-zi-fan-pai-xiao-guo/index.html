@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="结合GreenSock实现数字翻牌效果, 王小磊的博客">
-    <meta name="description" content="">
+    <meta name="description" content="记录一些日常和技术分享，可能包含哒不限于Vue、js、TS和Css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -147,7 +147,7 @@
         <div class="logo-name">王小磊的博客</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            记录一些日常和技术分享，可能包含哒不限于Vue、js、TS和Css
             
         </div>
     </div>
@@ -489,7 +489,7 @@
 </li>
 <li>视图结构<br>主要设计思路和层级已经在注释中给出。</li>
 </ol>
-<pre class="language-markup" data-language="markup"><code class="language-markup"><span class="token comment">&lt;!-- 最外层容器，用于给出uniqId来防止gsap动画冲突 --&gt;</span>
+<pre class="language-html" data-language="html"><code class="language-html"><span class="token comment">&lt;!-- 最外层容器，用于给出uniqId来防止gsap动画冲突 --&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container-nf<span class="token punctuation">"</span></span> <span class="token attr-name">:class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>[uniqueId]<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
   <span class="token comment">&lt;!-- 底部的上半部分 --&gt;</span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>flip-item flip-item__base flip-item__base--top<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -606,7 +606,7 @@
 
       <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateX</span><span class="token punctuation">(</span>0deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment">// 使其以中间空隙处为轴翻转</span>
-      <span class="token property">transform-origin</span><span class="token punctuation">:</span> 50% <span class="token function">calc</span><span class="token punctuation">(</span>100% <span class="token operator">+</span> 1px<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token property">transform-origin</span><span class="token punctuation">:</span> 50% <span class="token function">calc</span><span class="token punctuation">(</span>100% <span class="token operator">+</span> 0.5px<span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
 
     <span class="token selector"><span class="token parent important">&amp;</span>--back </span><span class="token punctuation">{</span>
@@ -616,7 +616,7 @@
       <span class="token comment">// 给出初始翻转角度，让它被藏在正面的背后</span>
       <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotateX</span><span class="token punctuation">(</span>180deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token comment">// 使其以中间空隙处为轴翻转</span>
-      <span class="token property">transform-origin</span><span class="token punctuation">:</span> 50% -1px<span class="token punctuation">;</span>
+      <span class="token property">transform-origin</span><span class="token punctuation">:</span> 50% -0.5px<span class="token punctuation">;</span>
     <span class="token punctuation">}</span>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span></code></pre>
@@ -626,7 +626,7 @@
 <ul>
 <li>工具函数-计算中间值</li>
 </ul>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token comment">/**
+<pre class="language-js" data-language="js"><code class="language-js"><span class="token comment">/**
  * @description 计算中间值
  * @param {Number} start 开始值
  * @param {Number} end 结束值
@@ -654,7 +654,7 @@
 <ul>
 <li>主要逻辑</li>
 </ul>
-<pre class="language-javascript" data-language="javascript"><code class="language-javascript">watch<span class="token operator">:</span> <span class="token punctuation">{</span>
+<pre class="language-js" data-language="js"><code class="language-js">watch<span class="token operator">:</span> <span class="token punctuation">{</span>
   <span class="token function">value</span><span class="token punctuation">(</span><span class="token parameter">val<span class="token punctuation">,</span> oldVal</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$nextTick</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
       <span class="token keyword">this</span><span class="token punctuation">.</span>processValue <span class="token operator">=</span> <span class="token function">getProcessValues</span><span class="token punctuation">(</span>oldVal<span class="token punctuation">,</span> val<span class="token punctuation">)</span>
