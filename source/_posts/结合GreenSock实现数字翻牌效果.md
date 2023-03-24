@@ -180,7 +180,7 @@ categories:
 
       transform: rotateX(0deg);
       // 使其以中间空隙处为轴翻转
-      transform-origin: 50% calc(100% + 1px);
+      transform-origin: 50% calc(100% + 0.5px);
     }
 
     &--back {
@@ -190,7 +190,7 @@ categories:
       // 给出初始翻转角度，让它被藏在正面的背后
       transform: rotateX(180deg);
       // 使其以中间空隙处为轴翻转
-      transform-origin: 50% -1px;
+      transform-origin: 50% -0.5px;
     }
   }
 }
