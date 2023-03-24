@@ -18,7 +18,7 @@ categories:
 
 # 实现效果
 
-![数字翻牌效果](/images/numberFlip/numberFlip.gif)
+![数字翻牌效果](/images/numberFlip/numberFlip1.gif)
 
 # 思路解析
 
