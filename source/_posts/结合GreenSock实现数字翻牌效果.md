@@ -116,7 +116,7 @@ categories:
   color: #409eff;
   background-color: #d3d3d3;
 
-  // 上班部分的背景和字体颜色
+  // 上半部分的背景和字体颜色
   &__base--top,
   &__over--front {
     border-radius: 3px 3px 0 0;
