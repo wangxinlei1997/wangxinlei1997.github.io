@@ -6,3 +6,5 @@ node_modules/
 public/
 .deploy*/
 .delpoy_git/
+package-lock.json
+yarn.lock
