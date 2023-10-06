@@ -110,9 +110,11 @@ theme: hexo-theme-matery
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: git
-  repo: https://github.com/wangxinlei1997/wangxinlei1997.github.io.git
-  branch: gh-pages
+  type: rsync
+  host: 43.128.73.161
+  user: root
+  root: /www/wwwroot/wangxinlei1997.github.io
+  port: 22
 sitemap:
   path: sitemap.xml
 search:
