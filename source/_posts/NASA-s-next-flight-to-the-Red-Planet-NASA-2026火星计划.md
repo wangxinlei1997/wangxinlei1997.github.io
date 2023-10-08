@@ -17,4 +17,5 @@ categories:
 
 > [申请渠道链接](https://mars.nasa.gov/participate/send-your-name/future)
 > 以下附我的2026年火星飞行计划(误)
-{% iframe https://mars.nasa.gov/layout/embed/send-your-name/future/certificate/?cn=521339539951 980 410 %}
+{% iframe https://mars.nasa.gov/layout/embed/send-your-name/future/certificate/?cn=521339539951 %}
+
