@@ -117,6 +117,8 @@ deploy:
   port: 22
 sitemap:
   path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
 search:
   path: search.xml
   field: post
