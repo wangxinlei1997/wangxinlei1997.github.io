@@ -41,7 +41,6 @@ external_link:
   exclude: ""
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
 relative_link: false
 future: true
 highlight:
@@ -136,3 +135,7 @@ lazyload:
   script: https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js
 encrypt:
   enable: true
+post_asset_folder: true
+marked:
+  prependRoot: true
+  postAsset: true

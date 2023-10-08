@@ -18,7 +18,7 @@ categories:
 
 # 实现效果
 
-![数字翻牌效果](/images/numberFlip/numberFlip1.gif)
+![数字翻牌效果](numberFlip1.gif)
 
 # 思路解析
 
@@ -27,8 +27,8 @@ categories:
 1. 视图结构
 &emsp;&emsp;可以看见，我们希望实现的效果是中间状态(如从 0->9)的多层翻牌效果。为了便于理解，我这里先使用只有一个中间过程的情况来进行分析。<br>
 <div style="display:flex;flex-direction:row;align-items:center;justify-content:space-around">
-<img src="/images/numberFlip/front.png" style="height:300px" alt="正面"/>
-<img src="/images/numberFlip/back.png" style="height:300px" alt="反面"/>
+<img src="front.png" style="height:300px" alt="正面"/>
+<img src="back.png" style="height:300px" alt="反面"/>
 </div>
 
 &emsp;&emsp;上面两张图分别展示了从`0`翻动至`1`的结束状态过程。可以看到，从`0`翻至`1`，其视图主要分为 2 个主要部分，即`底部`和`顶部`（可以想象一下翻书的 3d 模型）。

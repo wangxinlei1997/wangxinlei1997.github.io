@@ -220,4 +220,4 @@ a {
 
 ```
 7. 运行devServer就完事了
-![](/images/cesium-demo.png)
+![](cesium-demo.png)
