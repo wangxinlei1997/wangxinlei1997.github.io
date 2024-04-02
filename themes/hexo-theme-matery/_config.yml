@@ -13,6 +13,9 @@ menu:
   Archives:
     url: /archives
     icon: fas fa-archive
+  工具:
+    url: https://xiaob.work/tools
+    icon: fas fa-wrench
   About:
     url: /about
     icon: fas fa-user-circle
