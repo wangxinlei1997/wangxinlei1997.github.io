@@ -7,17 +7,17 @@ tags:
  - Vue
  - Vue3
  - Three.js
- - Tres.js
-categories: 
+ - TresJs
+categories:
     - 技术分享
 ---
 ## 效果预览
 今天我们将会探索一个名为 [TresJs](https://tresjs.org/) 的工具，它是一个使得在 Vue3 中使用 Three.js 变得更加容易的库。下面，我们将会使用 TresJs 来创建一个如下 iframe 展示的简单的 3D 手机模型展示。
-<iframe src="https://demo.xiaob.work/trejs" style="width:100%;height:600px"></iframe>
+<iframe src="https://demo.xiaob.work/tresjS" style="width:100%;height:600px"></iframe>
 
 ## 什么是 TresJs？
 
-TreJs是一个声明性的3D场景构建工具，它允许你像使用Vue组件一样构建3D场景。TreJs利用Vite提供的热模块替换(HMR)功能，无论应用程序的大小如何，它都能保持快速的加载速度。此外，TreJs始终保持最新的ThreeJS特性，让你可以随时使用ThreeJS的所有更新功能。通过扩展核心功能，例如使用`cientos`和`postprocessing`等包，或者添加你自己的包，你可以更好地使用ThreeJS的生态系统。总的来说，无论你是在创建3D手机模型展示，还是在进行其他类型的3D项目，TreJs都能为你提供极大的便利。
+TresJS是一个声明性的3D场景构建工具，它允许你像使用Vue组件一样构建3D场景。TresJS利用Vite提供的热模块替换(HMR)功能，无论应用程序的大小如何，它都能保持快速的加载速度。此外，TresJS始终保持最新的Three.JS特性，让你可以随时使用ThreeJS的所有更新功能。通过扩展核心功能，例如使用`cientos`和`postprocessing`等包，或者添加你自己的包，你可以更好地使用Three.JS的生态系统。总的来说，无论你是在创建3D手机模型展示，还是在进行其他类型的3D项目，TresJS都能为你提供极大的便利。
 
 ## 一些基本概念
 
@@ -27,7 +27,7 @@ TreJs是一个声明性的3D场景构建工具，它允许你像使用Vue组件�
 
 在Three.js中，Scene（场景）是所有物体和光源的容器，它表示了一个三维的空间环境。你可以将其看作是一个舞台，所有的物体，包括几何体、灯光、摄像机等都在这个舞台上。在创建任何Three.js应用时，我们都需要先创建一个Scene。在这个场景中，我们可以添加或删除物体，调整物体的位置、旋转和缩放等属性，也可以添加各种光源来影响物体的渲染效果。最后，我们会使用一个摄像机来决定从哪个角度查看这个场景，然后将场景渲染到一个二维的屏幕上。
 
-在 `TreJs` 中，`Scene` 由组件 `TresCanvas` 提供。
+在 `TresJS` 中，`Scene` 由组件 `TresCanvas` 提供。
 
 ### Renderer
 
@@ -35,7 +35,7 @@ TreJs是一个声明性的3D场景构建工具，它允许你像使用Vue组件�
 
 Three.js 提供了多种 Renderer，包括 WebGLRenderer、WebGL1Renderer、CSS2DRenderer、CSS3DRenderer 等。其中，WebGLRenderer 是最常用的 Renderer，它使用 WebGL 技术来渲染 3D 场景。
 
-在 `TreJs` 中，Renderer 在组件 `TresCanvas` 初始化时会自动创建。
+在 `TresJS` 中，Renderer 在组件 `TresCanvas` 初始化时会自动创建。
 
 ### Camera
 
@@ -47,7 +47,7 @@ Three.js 提供了多种 Renderer，包括 WebGLRenderer、WebGL1Renderer、CSS2
 
 在我们的 Vue.js 3D 手机模型展示中，我们使用了透视摄像机（TresPerspectiveCamera）来创建更为真实的 3D 视觉效果。
 
-在 `TreJs` 中，Camera 由组件 `TresPerspectiveCamera` 提供。
+在 `TresJS` 中，Camera 由组件 `TresPerspectiveCamera` 提供。
 
 ### Object
 
@@ -55,7 +55,7 @@ Three.js 提供了多种 Renderer，包括 WebGLRenderer、WebGL1Renderer、CSS2
 
 在 Three.js 中，Mesh 是一个基本的3D物体，它由一个几何体和一个材质组成。几何体是一个定义了物体形状的对象，材质则是定义了物体表面的外观。在一个Mesh中，几何体和材质的结合就形成了一个可以在场景中渲染的3D物体。
 
-而从外部导入的模型文件，由于其格式有非常多种，加载方式各不相同，具体的可以查看 Trejs 或 Three.js 的官方文档。
+而从外部导入的模型文件，由于其格式有非常多种，加载方式各不相同，具体的可以查看 TresJS 或 Three.js 的官方文档。
 
 ## 开始使用
 
@@ -117,4 +117,4 @@ model.scale.set(scale, scale, scale);
 
 ## 结论
 
-Tres.js 提供了一种在 Vue.js 中使用 Three.js 的简洁方式，使得我们可以在 Vue.js 中方便地使用 Three.js 的各种功能。目前此项目在 github 上已经有 1k+ 的 star，期待其官方文档的完善，以及更多的开发者加入到这个项目中，共同推动 Three.js 在 Vue.js 中的发展。
+TresJs 提供了一种在 Vue.js 中使用 Three.js 的简洁方式，使得我们可以在 Vue.js 中方便地使用 Three.js 的各种功能。目前此项目在 github 上已经有 1k+ 的 star，期待其官方文档的完善，以及更多的开发者加入到这个项目中，共同推动 Three.js 在 Vue.js 中的发展。
