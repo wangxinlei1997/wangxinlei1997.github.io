@@ -5,13 +5,14 @@ toc: false
 tags:
  - 3D
  - Vue
+ - Vue3
  - Three.js
  - Tres.js
 categories: 
     - 技术分享
 ---
 ## 效果预览
-今天我们将会探索一个名为 [TresJs](https://tresjs.org/) 的工具，它是一个使得在 Vue 中使用 Three.js 变得更加容易的库。下面，我们将会使用 TresJs 来创建一个如下 iframe 展示的简单的 3D 手机模型展示。
+今天我们将会探索一个名为 [TresJs](https://tresjs.org/) 的工具，它是一个使得在 Vue3 中使用 Three.js 变得更加容易的库。下面，我们将会使用 TresJs 来创建一个如下 iframe 展示的简单的 3D 手机模型展示。
 <iframe src="https://demo.xiaob.work/trejs" style="width:100%;height:600px"></iframe>
 
 ## 什么是 TresJs？
