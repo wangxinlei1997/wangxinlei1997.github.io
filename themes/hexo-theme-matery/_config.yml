@@ -219,7 +219,7 @@ myProjects:
     mid-data-set:
       icon: fas fa-ship
       iconBackground: 'linear-gradient(19deg, #21D4FD 0%, #B721FF 100%)'
-      url: https://github.com/wangxinlei1997/mid-data-set
+      url: https://demos.xiaob.work/mid-data-set/
       desc: MMSI 与中英文名、国旗的对照表
     njcm.tech:
         icon: fas fa-building

@@ -15,4 +15,4 @@ Maritime identification digits, 表示船舶国籍代码，一般由MMSI前三�
 # 源码
 [wangxinlei1997/mid-data-set](https://github.com/wangxinlei1997/mid-data-set)
 # 直链
-[MMSI对照表](http://xiaob.work/mid-data-set/)
+[MMSI对照表](https://demos.xiaob.work/mid-data-set/)
