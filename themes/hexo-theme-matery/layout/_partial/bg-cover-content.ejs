@@ -32,7 +32,7 @@
   const screenHeight = document.documentElement.clientHeight || document.body.clientHeight || 1080;
   // 每天切换 banner 图.  Switch banner image every day.
   // var bannerUrl = "<%- theme.jsDelivr.url %><%- url_for('/medias/banner/') %>" + new Date().getDay() + '.jpg';
-  var bannerUrl = `https://source.unsplash.com/random/${screenWidth}x${screenHeight}/?scene`;
+  var bannerUrl = `https://picsum.photos/${screenWidth}/${screenHeight}`;
   $(".bg-cover").css("background-image", "url(" + bannerUrl + ")");
 </script>
 <% } else { %>
