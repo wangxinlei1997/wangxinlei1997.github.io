@@ -20,7 +20,7 @@ tags:
 
 由于退出登录现象只在页面刷新后出现，因此从 Cookies 方向开始排查。
 
-项目使用 Keycloak 进行认证，在页面刷新时会初始化客户端实例，并使用 Cookies 中的信息进行 [OAuth2](https://auth0.com/resources/ebooks/oauth-openid-connect-professional-guide) 协议鉴权。怀疑是 Cookies 中的鉴权信息丢失或过期。
+项目使用 Keycloak 进行认证，在页面刷新时会初始化客户端实例，并使用 Cookies 中的信息进行 [OAuth2](https://oauth.net/2/) 协议鉴权。怀疑是 Cookies 中的鉴权信息丢失或过期。
 
 ## 3. 排查 Cookies
 
