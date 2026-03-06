@@ -3,6 +3,7 @@ title: 使用postcss-px-to-viewport进行vw响应式开发
 date: 2026-01-26 14:16:38
 tags: AI Generated POST
 ---
+
 # 使用 @pandaxiong1992/postcss-px-to-viewport 进行样式 vw 适配的配置说明
 
 ## 背景
@@ -40,6 +41,20 @@ css: {
             minPixelValue: 1,
             mediaQuery: false,
             replace: true
+          }),
+          // 如果需要对其他属性进行不同的转换，可以再添加一个插件实例
+          PostcssPxToViewport({
+            include: [/[/\\]yunjing-report-panel[/\\]/],
+            viewportWidth: 1080,
+            unitPrecision: 5,
+            unitToConvert: ['ph'],
+            propList: ['*'],
+            viewportUnit: 'vh',
+            fontViewportUnit: 'vh',
+            selectorBlackList: [],
+            minPixelValue: 1,
+            mediaQuery: false,
+            replace: true
           })
         ]
       }
@@ -62,8 +77,10 @@ css: {
   - A: 检查 `package.json`，应为 `@pandaxiong1992/postcss-px-to-viewport`，不是 `postcss-px-to-viewport`。
 
 ## 参考
+
 - [@pandaxiong1992/postcss-px-to-viewport](https://www.npmjs.com/package/@pandaxiong1992/postcss-px-to-viewport)
 - [官方 postcss-px-to-viewport](https://github.com/evrone/postcss-px-to-viewport)
 
 ---
+
 如需扩展更多目录或自定义转换规则，建议优先查阅社区 fork 版文档。
