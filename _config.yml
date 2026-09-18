@@ -110,7 +110,7 @@ theme: hexo-theme-matery
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: rsync
-  host: 43.128.73.161
+  host: 43.129.238.248
   user: root
   root: /www/wwwroot/wangxinlei1997.github.io
   port: 22
