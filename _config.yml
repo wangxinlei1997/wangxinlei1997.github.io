@@ -43,8 +43,9 @@ filename_case: 0
 render_drafts: false
 relative_link: false
 future: true
+syntax_highlighter: highlight.js
 highlight:
-  enable: false
+  enable: true
   line_number: true
   auto_detect: false
   tab_replace: ""
@@ -57,7 +58,7 @@ highlight:
 #   #如果为true就会显示代码号，而且会分两边显示，显得不友好
 #   custom_css:
 prismjs:
-  enable: true
+  enable: false
   preprocess: true
   line_number: false
   tab_replace: ""
@@ -104,7 +105,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: landscape
-theme: hexo-theme-matery
+theme: icarus
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -114,10 +115,12 @@ deploy:
   user: root
   root: /www/wwwroot/wangxinlei1997.github.io
   port: 22
+  delete: false # Preserve independent files in the production document root.
+  args: --delay-updates
 sitemap:
-  path: sitemap.xml
-baidusitemap:
-  path: baidusitemap.xml
+  path:
+    - sitemap.xml
+    - baidusitemap.xml
 search:
   path: search.xml
   field: post
@@ -135,6 +138,9 @@ lazyload:
   script: https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js
 encrypt:
   enable: true
+  abstract: 这是一篇加密文章，请输入密码阅读全文。
+  message: 请输入文章密码
+  wrong_pass_message: 密码不正确，请重试。
 post_asset_folder: true
 marked:
   prependRoot: true

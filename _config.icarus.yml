@@ -1,0 +1,78 @@
+version: 7.0.0
+variant: m3e
+appearance: auto
+logo:
+  text: 王小磊的博客
+head:
+  favicon: /lei.png
+  structured_data:
+    publisher_logo: /lei.png
+navbar:
+  sticky: true
+  menu:
+    首页: /
+    标签: /tags/
+    分类: /categories/
+    归档: /archives/
+    工具: https://xiaob.work/tools
+    关于: /about/
+    友链: /friends/
+article:
+  og_image: /medias/avatar.jpg
+  highlight:
+    clipboard: true
+    fold: unfolded
+    fold_preview: 0
+  readtime: false
+  update_time: false
+  licenses:
+    CC BY 4.0:
+      icon: fab fa-creative-commons
+      url: https://creativecommons.org/licenses/by/4.0/
+search:
+  type: insight
+  index_pages: true
+share:
+  type: web_share
+sidebar:
+  left:
+    sticky: true
+widgets:
+  - type: profile
+    position: left
+    author: Bryan
+    author_title: Software Engineer
+    avatar: /medias/avatar.jpg
+    avatar_rounded: true
+    follow_link: https://github.com/wangxinlei1997
+    social_links:
+      GitHub:
+        icon: fab fa-github
+        url: https://github.com/wangxinlei1997
+      邮箱:
+        icon: fas fa-envelope
+        url: mailto:wangxinlei_work@foxmail.com
+      QQ:
+        icon: fab fa-qq
+        url: https://wpa.qq.com/msgrd?v=3&uin=854270334&site=qq&menu=yes
+  - type: toc
+    position: left
+    index: true
+    collapsed: true
+    depth: 4
+  - type: categories
+    position: left
+  - type: tags
+    position: left
+  - type: recent_posts
+    position: left
+plugins:
+  back_to_top: true
+  gallery: true
+  busuanzi: false
+  animejs: false
+  pjax: false
+providers:
+  cdn: jsdelivr
+  fontcdn: loli
+  iconcdn: fontawesome

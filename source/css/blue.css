@@ -1,0 +1,53 @@
+/* Keep all expressive accents blue, including the shifted tertiary palette. */
+:root {
+  --m3-h: 250;
+  --m3-code-num: var(--m3-secondary);
+  --m3-tertiary: var(--m3-primary);
+  --m3-on-tertiary: var(--m3-on-primary);
+  --m3-tertiary-container: var(--m3-primary-container);
+  --m3-on-tertiary-container: var(--m3-on-primary-container);
+}
+html[data-appearance] {
+  --m3-tertiary: var(--m3-primary);
+  --m3-on-tertiary: var(--m3-on-primary);
+  --m3-tertiary-container: var(--m3-primary-container);
+  --m3-on-tertiary-container: var(--m3-on-primary-container);
+}
+html { caret-color: var(--m3-primary); }
+html .article .content { line-height: 1.85; overflow-wrap: anywhere; }
+html .article .content a { text-underline-offset: .2em; }
+html .article .content h2 { margin-top: 2em; }
+html .article .content img { height: auto; }
+html .article .content pre { overflow-wrap: normal; }
+html .article .content code { color: var(--m3-primary); }
+html [data-share-provider] .button {
+  background: var(--m3-primary-container) !important;
+  color: var(--m3-on-primary-container) !important;
+  border-color: transparent !important;
+}
+html [data-share-provider] .button:hover {
+  background: var(--m3-primary) !important;
+  color: var(--m3-on-primary) !important;
+}
+html .hbe-input-field, html .hbe-input-label {
+  color: var(--m3-on-surface);
+  background: var(--m3-surface-container);
+}
+html .hbe-input-field:focus { outline: 3px solid var(--m3-primary); }
+html .hbe-input-field { border-color: var(--m3-primary); }
+html .hbe-input-label::before, html .hbe-input-label::after { background: var(--m3-primary); }
+.friend-list { display: grid; gap: 1.5rem; }
+.friend { display: flex; align-items: center; gap: 1rem; }
+.friend img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
+.friend p { margin: .4rem 0 0; }
+.post-calendar { margin-bottom: 1.5rem; }
+.calendar-scroll { overflow-x: auto; padding: .5rem 0; }
+.calendar-days { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 12px); grid-auto-columns: 12px; gap: 3px; width: max-content; }
+.calendar-days span, .calendar-days a { border-radius: 3px; background: var(--m3-surface-container-highest); }
+.calendar-days a { background: var(--m3-primary); }
+.calendar-caption { color: var(--m3-on-surface-variant); font-size: .875rem; }
+
+.skill-progress { width: min(12rem, 60%); height: .65rem; margin-right: .5rem; vertical-align: middle; appearance: none; border: 0; border-radius: 999px; overflow: hidden; background: var(--m3-surface-container-highest); color: var(--m3-primary); }
+.skill-progress::-webkit-progress-bar { background: var(--m3-surface-container-highest); }
+.skill-progress::-webkit-progress-value { background: var(--m3-primary); border-radius: 999px; }
+.skill-progress::-moz-progress-bar { background: var(--m3-primary); border-radius: 999px; }

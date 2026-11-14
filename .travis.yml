@@ -1,15 +1,15 @@
 sudo: false
 language: node_js
 install:
-  - yarn
+  - npm ci
 node_js:
-  - 10 # use nodejs v10 LTS
+  - 22 # Hexo 8 runtime
 cache: npm
 branches:
   only:
     - master # build master branch only
 script:
-  - hexo generate # generate static files
+  - npm run build # generate static files
 deploy:
   provider: pages
   skip-cleanup: true
